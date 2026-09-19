@@ -2,6 +2,7 @@ backend:
   name: github
   repo: PranjalTheCoder/second_site
   branch: main
+  site_id: endearing-puppy-c29e50.netlify.app
 
 publish_mode: editorial_workflow
 
