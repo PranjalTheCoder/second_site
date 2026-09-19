@@ -1,8 +1,8 @@
 backend:
-  name: github
+  name: turbo-github
   repo: PranjalTheCoder/second_site
   branch: main
-  site_domain: endearing-puppy-c29e50.netlify.app
+  turbo_site_id: f102f94e-d511-488b-ba19-b60204784a80
 
 publish_mode: editorial_workflow
 
