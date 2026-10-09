@@ -111,6 +111,13 @@ export default async function DocumentationPage({
                 </span>
               );
             })}
+
+            <a
+              className="docs-edit-link"
+              href={`/second_site/admin/#/collections/docs/entries/${slug.join("/")}`}
+            >
+              Edit this page
+            </a>
           </nav>
           <h1>{doc.title}</h1>
 
