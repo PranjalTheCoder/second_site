@@ -22,6 +22,23 @@ collections:
         name: title
         widget: string
 
+      - label: Category
+        name: category
+        widget: select
+        options:
+          - "Getting Started"
+          - "Guides"
+          - "Reference"
+          - "Documentation"
+        default: "Documentation"
+        hint: "Controls which section of the sidebar this page appears under."
+
+      - label: Order
+        name: order
+        widget: number
+        required: false
+        hint: "Lower numbers appear first within the category. Leave blank to sort last."
+
       - label: Description
         name: description
         widget: string
@@ -30,3 +47,5 @@ collections:
       - label: Body
         name: body
         widget: markdown
+        editor_components: ["image", "code-block", "mention"]
+        hint: "Use a ```mermaid code block to add a diagram, and the Mention toolbar button to reference a team member by their GitHub handle."

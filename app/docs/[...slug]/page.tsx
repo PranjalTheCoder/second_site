@@ -1,12 +1,58 @@
+import { isValidElement, type ReactNode } from "react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeHighlight from "rehype-highlight";
 
 import { getAllDocs, getDocBySlug } from "@/lib/docs";
 
 import DocsHeader from "@/components/docs/DocsHeader";
 import Sidebar from "@/components/docs/Sidebar";
+import Mermaid from "@/components/docs/Mermaid";
+
+function getText(node: ReactNode): string {
+  if (typeof node === "string" || typeof node === "number") {
+    return String(node);
+  }
+
+  if (Array.isArray(node)) {
+    return node.map(getText).join("");
+  }
+
+  if (isValidElement<{ children?: ReactNode }>(node)) {
+    return getText(node.props.children);
+  }
+
+  return "";
+}
+
+function Pre({ children }: { children?: ReactNode }) {
+  if (
+    isValidElement<{ className?: string }>(children) &&
+    /language-mermaid/.test(children.props.className ?? "")
+  ) {
+    return children;
+  }
+
+  return <pre>{children}</pre>;
+}
+
+function CodeBlock({
+  className,
+  children,
+}: {
+  className?: string;
+  children?: ReactNode;
+}) {
+  const language = /language-(\w+)/.exec(className ?? "")?.[1];
+
+  if (language === "mermaid") {
+    return <Mermaid code={getText(children).trim()} />;
+  }
+
+  return <code className={className}>{children}</code>;
+}
 
 export function generateStaticParams() {
   const docs = getAllDocs();
@@ -72,7 +118,11 @@ export default async function DocumentationPage({
             <p className="docs-description">{doc.description}</p>
           )}
 
-          <ReactMarkdown remarkPlugins={[remarkGfm]}>
+          <ReactMarkdown
+            remarkPlugins={[remarkGfm]}
+            rehypePlugins={[rehypeHighlight]}
+            components={{ pre: Pre, code: CodeBlock }}
+          >
             {doc.content}
           </ReactMarkdown>
           <nav

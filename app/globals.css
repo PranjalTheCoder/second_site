@@ -1,3 +1,5 @@
+@import "highlight.js/styles/github-dark.css";
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -576,4 +578,38 @@ body {
 .docs-breadcrumbs > span:last-child {
   color: #374151;
   font-weight: 500;
+}
+
+/* Mermaid diagrams */
+
+.mermaid-diagram {
+  margin: 24px 0;
+  padding: 18px;
+
+  display: flex;
+  justify-content: center;
+
+  overflow-x: auto;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+
+  background: #ffffff;
+}
+
+.mermaid-diagram svg {
+  max-width: 100%;
+}
+
+.mermaid-error {
+  margin: 24px 0;
+  padding: 12px 16px;
+
+  border: 1px solid #fecaca;
+  border-radius: 8px;
+
+  background: #fef2f2;
+  color: #991b1b;
+
+  font-size: 13px;
 }
