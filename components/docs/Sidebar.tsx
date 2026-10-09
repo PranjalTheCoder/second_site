@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { getAllDocs } from "@/lib/docs";
 
-export default function Sidebar() {
+type SidebarProps = {
+  currentPath?: string;
+};
+
+export default function Sidebar({ currentPath }: SidebarProps) {
   const docs = getAllDocs();
 
   const groupedDocs: Record<string, typeof docs> = {};
@@ -29,15 +33,22 @@ export default function Sidebar() {
           <div className="sidebar-section" key={category}>
             <h3>{category}</h3>
 
-            {categoryDocs.map((doc) => (
-              <Link
-                key={doc.slug.join("/")}
-                href={`/docs/${doc.slug.join("/")}`}
-                className="sidebar-link"
-              >
-                {doc.title}
-              </Link>
-            ))}
+            {categoryDocs.map((doc) => {
+              const href = `/docs/${doc.slug.join("/")}`;
+              const isActive = currentPath === href;
+
+              return (
+                <Link
+                  key={doc.slug.join("/")}
+                  href={href}
+                  className={`sidebar-link ${
+                    isActive ? "sidebar-link-active" : ""
+                  }`}
+                >
+                  {doc.title}
+                </Link>
+              );
+            })}
           </div>
         ))}
       </nav>
