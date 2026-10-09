@@ -1,8 +1,9 @@
 backend:
-  name: turbo-github
+  name: github
   repo: PranjalTheCoder/second_site
   branch: main
-  turbo_site_id: f102f94e-d511-488b-ba19-b60204784a80
+  base_url: https://second-site-cms-auth.pranjaltamrakar0794.workers.dev
+  open_authoring: true
 
 publish_mode: editorial_workflow
 

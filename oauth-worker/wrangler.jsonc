@@ -1,0 +1,9 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "second-site-cms-auth",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-09",
+  "vars": {
+    "ALLOWED_DOMAINS": "pranjalthecoder.github.io"
+  }
+}

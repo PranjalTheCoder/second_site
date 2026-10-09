@@ -1,0 +1,16 @@
+{
+  "name": "second-site-cms-auth",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  },
+  "optionalDependencies": {
+    "@cloudflare/workerd-windows-64": "^1.20261009.1"
+  }
+}
