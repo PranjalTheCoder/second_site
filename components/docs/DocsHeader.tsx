@@ -19,6 +19,21 @@ export default function DocsHeader() {
           <span>Search documentation</span>
           <kbd>⌘ K</kbd>
         </div>
+
+        <div className="docs-header-actions">
+          <a
+            className="docs-header-action"
+            href="/second_site/admin/#/collections/docs"
+          >
+            Admin
+          </a>
+          <a
+            className="docs-header-action docs-header-action-primary"
+            href="/second_site/admin/#/collections/docs/new"
+          >
+            + New Doc
+          </a>
+        </div>
       </div>
     </header>
   );

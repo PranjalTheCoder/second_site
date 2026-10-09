@@ -43,4 +43,24 @@
   });
 
   CMS.init();
+
+  const viewSiteLink = document.createElement("a");
+
+  viewSiteLink.href = "../";
+  viewSiteLink.textContent = "← View Site";
+  viewSiteLink.style.cssText = [
+    "position: fixed",
+    "bottom: 16px",
+    "left: 16px",
+    "z-index: 1000",
+    "padding: 8px 14px",
+    "border-radius: 6px",
+    "background: #111827",
+    "color: #ffffff",
+    "font: 13px -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif",
+    "text-decoration: none",
+    "box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2)",
+  ].join(";");
+
+  document.body.appendChild(viewSiteLink);
 })();

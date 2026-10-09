@@ -8,6 +8,7 @@ export default function Home() {
           <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
+          <a href="/second_site/docs/introduction">Docs</a>
         </div>
       </nav>
 
